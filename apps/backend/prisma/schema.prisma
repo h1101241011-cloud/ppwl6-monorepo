@@ -1,0 +1,17 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma/client"
+  previewFeatures = ["driverAdapters"]
+  engineType      = "client"
+  runtime         = "bun"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User { 
+  id    Int     @id @default(autoincrement()) 
+  email String  @unique
+  name  String?
+}
